@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Titillium+Web&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+        }
+        h1{
+            text-align: center;
+            font-family: 'Lora', serif;
+        }
+        label,p{
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 20px;
+        }
+        #submit{
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 22px;
+        }#submit:hover{
+            background-color: rgb(17, 130, 77);
+        }
+        form{
+            height: auto;
+            width: 85vw;
+            border: 1px solid black;
+            justify-self: center;
+        }
+    </style>
+
+    <title>Sistema para solucionar queda de internet</title>
+</head>
+<body>
+    <h1>Responda as seguintes perguntas e veja o que você deve fazer para reestabelecer sua conexão com a internet!</h1>
+
+    <div class="container">
+        <form method="POST">
+            <label><strong>Qual tipo de internet você possui?</strong></label><br>
+            <input type="radio" name="q1" value="radio" required>
+            <label>Rádio</label><br>
+            <input type="radio" name="q1" value="fibra" required>
+            <label>Fibra óptica</label><br><br>
+
+            <label><strong>Todos dispositivos conectados na sua rede estão sem acesso à internet?</strong></label><br>
+            <input type="radio" name="q2" value="sim" required>
+            <label>Sim</label><br>
+            <input type="radio" name="q2" value="nao" required>
+            <label>Não</label><br><br>
+
+            <label><strong>Há alguma luz vermelha ligada em seu roteador?</strong></label><br>
+            <input type="radio" name="q3" value="sim" required>
+            <label>Sim</label><br>
+            <input type="radio" name="q3" value="nao" required>
+            <label>Não</label><br><br>
+
+            <label><strong>Houve alguma queda de energia elétrica desde que você está sem acesso à internet?</strong></label><br>
+            <input type="radio" name="q4" value="sim" required>
+            <label>Sim</label><br>
+            <input type="radio" name="q4" value="nao" required>
+            <label>Não</label><br><br>
+
+            <label><strong>Houve alguma tempestade ou chuva desde que você está sem acesso à internet?</strong></label><br>
+            <input type="radio" name="q5" value="sim" required>
+            <label>Sim</label><br>
+            <input type="radio" name="q5" value="nao" required>
+            <label>Não</label><br><br>
+
+            
+            <label><strong>Há algum cabo desconectado ou danificado na região em que seu roteador se encontra?</strong></label><br>
+            <input type="radio" name="q6" value="sim" required>
+            <label>Sim</label><br>
+            <input type="radio" name="q6" value="nao" required>
+            <label>Não</label><br><br>
+
+            <input type="submit" id="submit" value="Verificar o que devo fazer">
+        </form>
+    </div>
+
+
+</body>
+</html>
