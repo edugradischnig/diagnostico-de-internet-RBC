@@ -12,7 +12,10 @@
 </html>
 
 <?php
-include_once "conexao.php";
+ include_once "conexao.php";
+ /** Possiveis solucoes:
+  * ID  -> Mensagem da solucao
+  * 100 -> Provavelmente o problema não está na Internet, mas sim no seu aparelho. Faça...
+  */
 
-printf($_POST[]);
 ?>

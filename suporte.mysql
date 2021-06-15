@@ -1,0 +1,14 @@
+CREATE DATABASE suporte;
+USE suporte;
+
+CREATE TABLE RESPOSTAS(
+    idResposta int NOT NULL AUTO_INCREMENT,
+    quest1 int(1) NOT NULL,
+    quest2 int(1) NOT NULL,
+    quest3 int(1) NOT NULL,
+    quest4 int(1) NOT NULL,
+    quest5 int(1) NOT NULL,
+    quest6 int(1) NOT NULL,
+    idSolucao int(4) NOT NULL,
+    PRIMARY KEY (idResposta)
+    );
