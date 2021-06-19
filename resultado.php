@@ -36,6 +36,21 @@ for ($z=0; $z < sizeof($registros); $z++) {
     $valoresDeSimilaridade[$z]+= abs($casoUsuario[$i - 1] - intval($registros[$z][$i]));
   }
 }
-echo "Similaridade:". $valoresDeSimilaridade[0]. "<br>";
-echo"Similaridade:". $valoresDeSimilaridade[1];
+
+$menorValorDeSimilaridade = 6; // Esse é o caso menos similar
+$posicaoCasoMaisSimilar = 0;
+
+for ($i=0; $i < sizeof($valoresDeSimilaridade); $i++) { 
+  if($valoresDeSimilaridade[$i] < $menorValorDeSimilaridade){
+    $menorValorDeSimilaridade = $valoresDeSimilaridade[$i];
+    $posicaoCasoMaisSimilar = $i;
+  }
+}
+
+var_dump($valoresDeSimilaridade);
+//echo "<br>Posição array caso mais similar: ".$posicaoCasoMaisSimilar;
+
+$solucao = $registros[$posicaoCasoMaisSimilar][7];
+echo $solucao;
+
 ?>
