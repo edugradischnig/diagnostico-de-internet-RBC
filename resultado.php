@@ -46,6 +46,7 @@ for ($i=0; $i < sizeof($valoresDeSimilaridade); $i++) {
   }
 }
 $solucao = $registros[$posicaoCasoMaisSimilar][7];
+setcookie("solucao",$solucao, time() + 600);
 
 switch ($solucao) {
   case 10:
@@ -74,6 +75,8 @@ switch ($solucao) {
     echo "<h3>Não conseguimos propor uma solução para o seu problema.</h3>";
     break;
 }
+setcookie("casoUsuario",$_POST["q1"].$_POST["q2"].$_POST["q3"].$_POST["q4"].$_POST["q5"].$_POST["q6"], time() + 600);
+
 echo "<h3>Ajude a contribuir com nosso programa respondendo se a solução ajudou você a restabelcer a conexão com a internet.</h3>";
 echo "<label>Essa solução funcionou?</label>";
 echo "<form action='feedback.php' method='POST'>";
@@ -83,5 +86,4 @@ echo "<input type='radio' id='feedN' name='feedback' value='n' required>";
 echo "<label for='feedN'>Não</label><br>";
 echo "<input type='submit' value='Enviar'>";
 echo "</form>";
-var_dump($_POST); // Se for necessário, setar cookie com o caso do usuário
 ?>
