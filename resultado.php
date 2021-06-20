@@ -11,12 +11,9 @@
 </body>
 </html>
 
+
 <?php
 include_once "conexao.php";
-
-//1. Ler dados do BD em um array (X)
-//2. Calcular o nivel de similaridade de cada registro do array com o novo caso (x)
-//3. Calcular qual será a saída
 
 $query = "SELECT * FROM RESPOSTAS;";
 $resultadosBD = mysqli_query($connection, $query);
@@ -30,9 +27,7 @@ $casoUsuario = [$_POST["q1"],$_POST["q2"],$_POST["q3"],$_POST["q4"],$_POST["q5"]
 $valoresDeSimilaridade = array_fill(0, sizeof($registros), 0);
 
 for ($z=0; $z < sizeof($registros); $z++) { 
-  echo "<br> Linha: ".$z."<br>";
   for ($i=1; $i < 7; $i++) { 
-    echo "value: ".$casoUsuario[$i - 1]." - ".$registros[$z][$i]."<br>";
     $valoresDeSimilaridade[$z]+= abs($casoUsuario[$i - 1] - intval($registros[$z][$i]));
   }
 }
@@ -46,11 +41,39 @@ for ($i=0; $i < sizeof($valoresDeSimilaridade); $i++) {
     $posicaoCasoMaisSimilar = $i;
   }
 }
-
-var_dump($valoresDeSimilaridade);
-//echo "<br>Posição array caso mais similar: ".$posicaoCasoMaisSimilar;
-
 $solucao = $registros[$posicaoCasoMaisSimilar][7];
-echo $solucao;
 
+switch ($solucao) {
+  case 10:
+    echo "<h3>Possivelmente o problema não é na internet ou nos aparelhos de internet, mas sim no seu dispositivo. 
+    Tente reiniciá-lo, esquecer a rede WiFi novamente e se o problema persistir, entre em contato com a provedora 
+    ou leve-o à uma assistência técnica.</h3>";
+    break;
+  case 11:
+    echo "<h3>Possivelmente o problema está nesse cabo mal conectado ou danificado, então tente reconectá-lo. 
+    Se mesmo assim não funcionar ele está danificado, providencie a troca deste cabo ou entre em contato com 
+    a provedora solicitando uma visita técnica. </h3>";
+    break;
+  case 12:
+    echo "<h3>Possivelmente o problema é no link de internet da sua provedora. Aguarde resolução do problema ou entre 
+    em contato com a sua provedora para que possam providenciar a manutenção.</h3>";
+    break;
+  case 13:
+    echo "<h3>Possivelmente algum equipamento de internet da sua residência foi danificado ou está queimado. 
+    Entre em contato com a provedora para que prestem assistência técnica para você.</h3>";
+    break;
+  default:
+    echo "<h3>Não conseguimos propor uma solução para o seu problema.</h3>";
+    break;
+}
+
+echo "<label>Essa solução funcionou?</label>";
+echo "<form action='feedback.php' method='POST'>";
+echo "<input type='radio' id='feedS' name='feedback' value='s' required>";
+echo "<label for='feedS'>Sim</label><br>";
+echo "<input type='radio' id='feedN' name='feedback' value='n' required>";
+echo "<label for='feedN'>Não</label><br>";
+echo "<input type='submit' value='Enviar'>";
+echo "</form>";
+var_dump($_POST); // Se for necessário, setar cookie com o caso do usuário
 ?>
