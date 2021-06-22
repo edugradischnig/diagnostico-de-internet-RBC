@@ -9,31 +9,38 @@
 
     <style>
         body{
-            margin: 0;
+            background-color:lightblue; 
         }
         .container{
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr;
+            text-align: center;
         }
         h1{
             text-align: center;
             font-family: 'Lora', serif;
         }
-        label,p{
+
+        label{
             font-family: 'Titillium Web', sans-serif;
-            font-size: 20px;
+            font-size: 25px;
         }
         #submit{
             font-family: 'Titillium Web', sans-serif;
             font-size: 22px;
+            background-color: rgb(211, 211, 211);
+            cursor:pointer;
+            font-weight: bold;
+            border: 1px solid #000
+
         }#submit:hover{
-            background-color: rgb(17, 130, 77);
+            background-color: rgb(31, 162, 68);
         }
         form{
             height: auto;
-            width: 85vw;
-            border: 1px solid black;
+            width: 50%;
+            border: 1px solid blue;
             justify-self: center;
         }
     </style>
@@ -82,6 +89,7 @@
             <label for="op12">Não</label><br><br>
 
             <input type="submit" id="submit" value="Verificar o que devo fazer">
+            <h1></h1>
         </form>
     </div>
 </body>
